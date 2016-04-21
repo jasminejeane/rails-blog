@@ -1,4 +1,9 @@
 class ArticlesController < ApplicationController
+	def show
+		@article = Article.find(params[:id])
+	end
+
+
 	# this is a plain action rails. nothing defined within
 	# it. Rails expects a view to be associated with it
 	def new
