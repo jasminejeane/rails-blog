@@ -11,13 +11,17 @@ class ArticlesController < ApplicationController
 	# this is a plain action rails. nothing defined within
 	# it. Rails expects a view to be associated with it
 	def new
+		@article = Article.new
 	end
 
 	def create	
 		@article = Article.new(article_params)
 
-		@article.save
-		redirect_to @article
+		if @article.save
+			redirect_to @article
+		else
+			render 'new'
+		end
 	end
 
 	private
